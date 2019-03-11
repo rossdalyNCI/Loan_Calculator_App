@@ -41,6 +41,7 @@ function calculateResults(){ // here we are creating the calculateResults functi
 
         // Hide loader
         document.getElementById('loading').style.display = 'none';
+
     } else {
         showError('Please check your numbers'); // calling the showError function
     }
@@ -48,6 +49,12 @@ function calculateResults(){ // here we are creating the calculateResults functi
 
 // Show Error
 function showError(error) { // creating the showError function we created earlier that takes the in the parameter or (error)
+     // Hide results
+     document.getElementById('results').style.display = 'none';
+
+     // Hide loader
+     document.getElementById('loading').style.display = 'none';
+
     // Create a div
     const errorDiv = document.createElement('div'); // the element we want to create is called 'div'
 
