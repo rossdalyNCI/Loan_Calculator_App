@@ -6,6 +6,8 @@ document.getElementById('loan-form').addEventListener('submit', function(e){
     // Show loader
     document.getElementById('loading').style.display = 'block';
 
+    setTimeout(calculateResults, 2000); // timeout set for 2s
+
     e.preventDefault();
 }); // we get the loan-form element and we add an event listener and we listen for submit. Once that is submitted we want to call the function
 
@@ -33,6 +35,12 @@ function calculateResults(){ // here we are creating the calculateResults functi
         monthlyPayment.value = monthly.toFixed(2);
         totalPayment.value = (monthly * calculatedPayments).toFixed(2); // toFixed used to fix the value to 2 decimal places
         totalInterest.value = ((monthly * calculatedPayments)-principal).toFixed(2);
+
+        // Show results
+        document.getElementById('results').style.display = 'block';
+
+        // Hide loader
+        document.getElementById('loading').style.display = 'none';
     } else {
         showError('Please check your numbers'); // calling the showError function
     }
