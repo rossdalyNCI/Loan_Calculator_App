@@ -1,8 +1,16 @@
 // Listen for Submit
-document.getElementById('loan-form').addEventListener('submit', calculateResults); // we get the loan-form element and we add an event listern and we listen for submit. Once that is submitted we want to call a function calculateResults
+document.getElementById('loan-form').addEventListener('submit', function(e){
+    // Hide results
+    document.getElementById('results').style.display = 'none';
+
+    // Show loader
+    document.getElementById('loading').style.display = 'block';
+
+    e.preventDefault();
+}); // we get the loan-form element and we add an event listener and we listen for submit. Once that is submitted we want to call the function
 
 // Calculate Results
-function calculateResults(e){ // here we are creating the calculateResults function that we called above
+function calculateResults(){ // here we are creating the calculateResults function that we called above
     console.log('Calculating...');
     // UI Vars - we are grabbing all the stuff we need from the UI
     const amount = document.getElementById('amount');
@@ -28,8 +36,6 @@ function calculateResults(e){ // here we are creating the calculateResults funct
     } else {
         showError('Please check your numbers'); // calling the showError function
     }
-
-    e.preventDefault(); // we want to prevent the default behaviour of a form, as we are using 'loan-form'
 }
 
 // Show Error
